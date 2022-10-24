@@ -27,3 +27,9 @@ Route::get('/register', function () {
 
 Route::get('/homepage', [HomeController::class, 'homepage'])->name('homepage.index');
 Route::post('/formsubmit', [HomeController::class, 'formstatus'])->name('homepage.formsubmit');
+
+Route::get('/user/view/{id}', [HomeController::class, 'viewuser'] );
+
+Route::get('/user/update/{id}', [HomeController::class, 'updateuser'] );
+
+Route::post('/user/save/{id}', [HomeController::class, 'saveuser'] );
