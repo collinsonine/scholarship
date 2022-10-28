@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApplicantController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CustomerController;
@@ -26,9 +27,12 @@ Route::get('/register', function () {
 
 Route::get('/homepage', [HomeController::class, 'homepage'])->name('homepage.index');
 Route::post('/formsubmit', [HomeController::class, 'formstatus'])->name('homepage.formsubmit');
-
 Route::get('/user/view/{id}', [HomeController::class, 'viewuser'] );
 
 Route::get('/user/update/{id}', [HomeController::class, 'updateuser'] );
 
 Route::post('/user/save/{id}', [HomeController::class, 'saveuser'] );
+
+Route::get('/apply', [ApplicantController::class, 'index'])->name('applicant.index');
+Route::get('/save/application', [ApplicantController::class, 'create'])->name('applicant.save');
+Route::get('/applicant/show/{id}', [ApplicantController::class, 'show'])->name('applicant.show');
